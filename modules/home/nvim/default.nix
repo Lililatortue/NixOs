@@ -1,12 +1,11 @@
-{pkgs,inputs, ...}:
+{pkgs, inputs, ...}:
 {
-       programs.nixvim = {
-    enable = true;
-
-    colorschemes.catppuccin.enable = true;
-    plugins.lualine.enable = true;
-  }; 
-	/*
+      	programs.nixvim = {
+        	enable = true;
+		colorschemes.evergarden.enable = true;
+	};
+}
+/*
             opts = {
                   number            = true;
                   relativenumber    = true;
@@ -164,5 +163,4 @@
             };
       };
       #xdg.configFile."nvim/lua".source = ./lua;
-*/
-}
+}*/
