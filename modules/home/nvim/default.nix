@@ -3,9 +3,6 @@
       	programs.nixvim = {
         	enable = true;
 		colorschemes.everforest.enable = true;
-	};
-}
-/*
             opts = {
                   number            = true;
                   relativenumber    = true;
@@ -163,4 +160,4 @@
             };
       };
       #xdg.configFile."nvim/lua".source = ./lua;
-}*/
+}
