@@ -33,6 +33,7 @@
                   #     file tree        #
                   #                      # 
                   nvim-tree = {
+                        enable = true;
                         highlight_opened_files = "none";
                         root_folder_label = false;
                         icons = {
@@ -43,11 +44,11 @@
                                     git         = true;
                               };
                         };
- #                       git = {
- #                             enable      = true;
- #                             ignore      = false;
- #                             show_on_dirs= true;
- #                       };
+                        git = {
+                               enable      = true;
+                               ignore      = false;
+                               show_on_dirs= true;
+                        };
                         
                         #extraConfigLua = ''
                         #      _G.filetree = {}
@@ -58,7 +59,7 @@
                               {
                                     mode    = "n";
                                     key     = "<leader>f";
-                                    action.__raw = "function() _G.filetree.funcs.smart_jump() end";
+                                    action.__raw = "NvimTreeToggle<CR> end";
                                     options = {
                                           desc  = "toggle focus on file tree.";
                                           silent= true;
