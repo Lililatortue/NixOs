@@ -26,7 +26,6 @@
 		wl-clipboard
 		waybar
 		# ide tooling
-		neovim
 		ripgrep
 		# browser
 		firefox
