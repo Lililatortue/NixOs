@@ -2,7 +2,7 @@
 {
       	programs.nixvim = {
         	enable = true;
-		colorschemes.evergarden.enable = true;
+		colorschemes.gruvbox.enable = true;
 	};
 }
 /*
