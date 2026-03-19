@@ -1,7 +1,10 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, inputs, lib,  ... }:
 {
-	home.username = "lililatortue";
-	home.homeDirectory = "/home/lililatortue";
+      imports = [
+            ./nvim           
+      ];
+	home.username      = "lililatortue";
+	home.homeDirectory = lib.mkForce "/home/lililatortue";
 	#			#
 	#	filesystem	#
 	#			#
@@ -163,8 +166,7 @@
                   bold_font        auto
                   italic_font      auto
                   bold_italic_font auto
-
-                  include current-theme.conf
+		  include current-theme.conf
             '';
       };
       xdg.configFile."kitty/current-theme.conf".source = ./kitty/current-theme.conf;
@@ -175,8 +177,8 @@
             enable = true;
             enableCompletion = true;
       };
+      
 
-
-	home.stateVersion = "25.11";
+	home.stateVersion = "24.11";
 	programs.home-manager.enable = true;
 }
