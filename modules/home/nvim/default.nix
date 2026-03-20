@@ -23,6 +23,27 @@
                         key   = "jk";
                         action= "<ESC>";
                   }
+	 	  # 
+                  {
+                        mode    = "n";
+                        key     = "<leader>f";
+                        action.__raw = "NvimTreeToggle<CR> end";
+                        options = {
+                              desc  = "toggle focus on file tree.";
+                              silent= true;
+                        };
+                  }
+                  # close file tree
+                  { 
+                        mode    = "n";
+                        key     = "<leader>c";
+                        action.__raw = "function() vim.cmd('NvimTreeClose') end";                             
+                        options = {
+                              desc = "close file tree";
+                              silent = true;
+                        };
+                  }
+
             ];
            
 
@@ -49,34 +70,7 @@
                                ignore      = false;
                                show_on_dirs= true;
                         };
-                        
-                        #extraConfigLua = ''
-                        #      _G.filetree = {}
-                        #     _G.filetree.funcs = require('filetree-settings')
-                        #'';
-                        keymaps = [
-                              #focus between file tree and file code
-                              {
-                                    mode    = "n";
-                                    key     = "<leader>f";
-                                    action.__raw = "NvimTreeToggle<CR> end";
-                                    options = {
-                                          desc  = "toggle focus on file tree.";
-                                          silent= true;
-                                    };
-                              }
-                              # close file tree
-                              { 
-                                    mode    = "n";
-                                    key     = "<leader>c";
-                                    action.__raw = "function() vim.cmd('NvimTreeClose') end";                             
-                                    options = {
-                                          desc = "close file tree";
-                                          silent = true;
-                                    };
-                              }
-                        ];
-                  }; 
+            	}; 
                   #                       #
                   #     telescope         #
                   #                       #
