@@ -17,17 +17,21 @@
             };
 
             globals.mapleader = " ";      
+            extraConfigLua = ''
+                  _G.filetree =  ${builtins.readFile ./filetree-settings.lua} 
+            '';
+
             keymaps = [
                   {
                         mode  = "i";
                         key   = "jk";
                         action= "<ESC>";
                   }
-	 	  # 
+	 	      # toggle filetree 
                   {
                         mode    = "n";
                         key     = "<leader>f";
-                        action  = ":NvimTreeToggle<CR> end";
+                        action.__raw  = "function() _G.filetree.smart_jump() end";
                         options = {
                               desc  = "toggle focus on file tree.";
                               silent= true;
@@ -46,9 +50,6 @@
 
             ];
            
-
-
-
             plugins = {
                   #                      #
                   #     file tree        #
@@ -104,13 +105,9 @@
                                     
                                     autostart      = true;
                               };
-                        };
-                        #settings.enabled = {
-                              # enable lazy loading of lsp
-                              #
-                        #      __raw = builtins.readFile ./lua/lsp-settings.lua;
-                        #};
+                        }; 
                   };
+
                   cmp = {
 			enable = false;
                         autoEnableSources = true;
