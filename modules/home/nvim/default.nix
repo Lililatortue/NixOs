@@ -18,7 +18,7 @@
 
             globals.mapleader = " ";      
             extraConfigLua = ''
-                  _G.filetree =  ${builtins.readFile ./filetree-settings.lua} 
+                  _G.filetree =  ${builtins.readFile ./filetree-setting.lua} 
             '';
 
             keymaps = [
