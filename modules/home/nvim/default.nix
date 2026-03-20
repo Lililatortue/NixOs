@@ -27,7 +27,7 @@
                   {
                         mode    = "n";
                         key     = "<leader>f";
-                        action.__raw = "NvimTreeToggle<CR> end";
+                        action  = ":NvimTreeToggle<CR> end";
                         options = {
                               desc  = "toggle focus on file tree.";
                               silent= true;
@@ -37,7 +37,7 @@
                   { 
                         mode    = "n";
                         key     = "<leader>c";
-                        action.__raw = "function() vim.cmd('NvimTreeClose') end";                             
+                        action  = "function() vim.cmd('NvimTreeClose') end";                             
                         options = {
                               desc = "close file tree";
                               silent = true;
