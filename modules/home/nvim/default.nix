@@ -31,7 +31,7 @@
                   {
                         mode    = "n";
                         key     = "<leader>f";
-                        action.__raw  = "function() _G.filetree.smart_jump() end";
+                        action  = "function() _G.filetree.smart_jump() end";
                         options = {
                               desc  = "toggle focus on file tree.";
                               silent= true;
