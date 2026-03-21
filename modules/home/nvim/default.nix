@@ -16,9 +16,10 @@
                   termguicolors     =true;
             };
 
-            globals.mapleader = " ";      
+            globals.mapleader = " ";     
+            extraFiles."lua/filetree-settings.lua".source = ./lua/filetree-settings.lua;
             extraConfigLua = ''
-                  _G.filetree =  ${builtins.readFile ./lua/filetree-settings.lua} 
+                  _G.filetree = require('filetree-settings')
             '';
 
             keymaps = [
@@ -31,7 +32,7 @@
                   {
                         mode    = "n";
                         key     = "<leader>f";
-                        action  = "function() _G.filetree.smart_jump() end";
+                        action.__raw  = "function() _G.filetree.smart_jump() end";
                         options = {
                               desc  = "toggle focus on file tree.";
                               silent= true;
@@ -41,7 +42,7 @@
                   { 
                         mode    = "n";
                         key     = "<leader>c";
-                        action  = "function() vim.cmd('NvimTreeClose') end";                             
+                        action.__raw  = "function() vim.cmd('NvimTreeClose') end";                             
                         options = {
                               desc = "close file tree";
                               silent = true;

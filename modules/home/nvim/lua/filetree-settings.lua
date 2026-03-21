@@ -1,7 +1,5 @@
 
 
-
-
 local function smart_jump() 
       local view = require("nvim-tree.view")
       if view.is_visible() and vim.bo.filetype == "NvimTree" then
@@ -11,3 +9,6 @@ local function smart_jump()
       end
 end
 
+return {
+      smart_jump = smart_jump
+}
