@@ -5,6 +5,12 @@
       ];
 	home.username      = "lililatortue";
 	home.homeDirectory = lib.mkForce "/home/lililatortue";
+
+      dconf.settings = {
+            "org/gnome/desktop/interface" = {
+                  color-scheme = "prefer-dark";
+            };
+      };
 	#			#
 	#	filesystem	#
 	#			#
