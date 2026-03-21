@@ -177,6 +177,26 @@
             enableCompletion = true;
       };
       
+      
+      #                 #
+      #     firefox     #
+      #                 #
+      programs.firefox = {
+            enable = true;
+            profiles.default = {
+                  settings = {
+                        "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org"; 
+                        "layout.css.prefers-color-scheme.content-override" = 0; 
+                        "browser.display.os-colors.active" = true;
+                        "browser.display.use_system_colors" = true;
+                        "browser.display.background_color" = "#111111";
+                        "browser.display.foreground_color" = "#eeeeee";
+                        "ui.systemUsesDarkTheme" = 1; 
+                        "browser.theme.content-theme" = 0;
+                        "browser.theme.toolbar-theme" = 0;
+                  }; 
+            };
+      };
 
 	home.stateVersion = "24.11";
 	programs.home-manager.enable = true;

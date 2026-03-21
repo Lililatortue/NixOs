@@ -1,44 +1,44 @@
 {pkgs, inputs, ...}:
 {
-      	programs.nixvim = {
-        	enable = true;
-		colorschemes.everforest.enable = true;
-            opts = {
-                  number            = true;
-                  relativenumber    = true;
-                  scrolloff         = 8;
+      programs.nixvim = {
+      enable = true;
+	colorschemes.everforest.enable = true;
+      opts = {
+            number            = true;
+            relativenumber    = true;
+            scrolloff         = 8;
 
-                  shiftwidth        = 6;
-                  tabstop           = 6;
-                  expandtab         = true;
-                  ignorecase        = true;
-                  smartcase         = true;
-                  termguicolors     =true;
-            };
+            shiftwidth        = 6;
+            tabstop           = 6;
+            expandtab         = true;
+            ignorecase        = true;
+            smartcase         = true;
+            termguicolors     =true;
+      };
 
-            globals.mapleader = " ";     
-            extraFiles."lua/filetree-settings.lua".source = ./lua/filetree-settings.lua;
-            extraConfigLua = ''
-                  _G.filetree = require('filetree-settings')
-            '';
+      globals.mapleader = " ";     
+      extraFiles."lua/filetree-settings.lua".source = ./lua/filetree-settings.lua;
+      extraConfigLua = ''
+            _G.filetree = require('filetree-settings')
+      '';
 
-            keymaps = [
-                  {
-                        mode  = "i";
-                        key   = "jk";
-                        action= "<ESC>";
-                  }
-	 	      # toggle filetree 
-                  {
-                        mode    = "n";
-                        key     = "<leader>f";
-                        action.__raw  = "function() _G.filetree.smart_jump() end";
-                        options = {
-                              desc  = "toggle focus on file tree.";
-                              silent= true;
-                        };
-                  }
-                  # close file tree
+      keymaps = [
+            {
+                  mode  = "i";
+                  key   = "jk";
+                  action= "<ESC>";
+            }
+	 	# toggle filetree 
+            {
+                  mode    = "n";
+                  key     = "<leader>f";
+                  action.__raw  = "function() _G.filetree.smart_jump() end";
+                  options = {
+                        desc  = "toggle focus on file tree.";
+                        silent= true;
+                  };
+            }
+            # close file tree
                   { 
                         mode    = "n";
                         key     = "<leader>c";

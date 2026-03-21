@@ -30,40 +30,34 @@
 
 
       fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
-  # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [
-     	vim 
-     	wget
-     	git
-   ];
+      # List packages installed in system profile.
+      environment.systemPackages = with pkgs; [
+     	      vim 
+     	      wget
+     	      git
+      ];
   
-  programs.nix-ld.enable  = true;
-  programs.nix-ld.libraries = with pkgs; [
-    	stdenv.cc.cc
-    	zlib
-    	fuse3
-    	icu
-    	nss
-    	openssl
-    	curl
-    	expat		
-  ];	
+      programs.nix-ld.enable  = true;
+      programs.nix-ld.libraries = with pkgs; [
+    	      stdenv.cc.cc
+    	      zlib
+    	      fuse3
+    	      icu
+    	      nss
+    	      openssl
+    	      curl
+    	      expat		
+      ];	
 	programs.hyprland.enable = true;
 	xdg.portal = {
 		enable=true;
 		extraPortals =  [pkgs.xdg-desktop-portal-hyprland];
 	};
-  services.openssh.enable = true;
+      services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = true;
+      networking.firewall.enable = true;
 
-
-
-  system.stateVersion = "25.11"; # Did you read the comment?
+      system.stateVersion = "25.11"; # Did you read the comment?
 
 }
 
