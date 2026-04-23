@@ -9,6 +9,7 @@
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
@@ -25,7 +26,8 @@
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/f5a5a0f1-6d99-49ac-8325-efa3ef7f16d2"; }
+    [ 
+	{ device = "/dev/disk/by-uuid/f5a5a0f1-6d99-49ac-8325-efa3ef7f16d2"; }
     ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
