@@ -35,8 +35,16 @@
 		ripgrep
 		# browser
 		firefox
+            # note taker
+            obsidian
+            #pdf reader
+            zathura
+
+            godot_4-mono
+            # work
+		# teams-for-linux
+
 	];
-	
 	#			#
 	#	hyprland	#
 	#			#
@@ -47,13 +55,15 @@
 			monitor= ",preferred,auto,auto";
 			"$terminal"= "kitty";
 			"$browser" = "firefox";
+                  "$notes"   = "obsidian";
 			"$menu"    = "wofi --show drun";
 			"$mainMod" = "ALT";
 			bind = [
 				"$mainMod, Q, exec, kitty"
 				"$mainMod, B, exec, $browser"
-				"$mainMod, z, exec, teams-for-linux"
+				# "$mainMod, z, exec, teams-for-linux"
 				"$mainMod, C, killactive"
+				"$mainMod, O, exec, $notes"
 				"$mainMod, M, exit"
 				"$mainMod, E, exec, $fileManager"
 				"$mainMod, V, togglefloating"
@@ -78,15 +88,19 @@
 				"$mainMod, 8, workspace, 8"
 				"$mainMod, 9, workspace, 9"
 				"$mainMod, 0, workspace, 10"
+				"$mainMod,TAB,togglespecialworkspace"
 				"$mainMod, P, exec, hyprshot --notify -m window -m active --clipboard-only" 
 				"$mainMod SHIFT, P, exec, hyprshot --notify -m output -m active --clipboard-only"
-				" ,Print, exec, hyprshot --notify -m region"
-
-
 			];
+
+                  bindl = [
+                        ", switch:on:Lid Switch, exec, hyprctl keyword monitor eDP-1, disable"
+                        ", switch:off:Lid Switch, exec, hyprctl keyword monitor eDP-1, preferred, auto, auto"
+                  ];
+
 			general = {
 				gaps_in     = 5;
-				gaps_out    = 20;
+				gaps_out    = 5;
 				border_size = 1;
    				"col.active_border"   = "rgba(e2e8e9ee) rgba(708090ee) 45deg";
     				"col.inactive_border" = "rgba(595959aa)";
@@ -147,8 +161,6 @@
 				"swww img $wallpaper"
 			];
 		};
-
-
 	};
       xdg.configFile."hypr/wallpaper.png".source = ./hyprland/wallpaper.png;
 	#			#
@@ -167,6 +179,18 @@
                   name = "JetBrainsMono Nerd Font";
                   size = 11;
             };
+		keybindings = {
+    			"super+h" = "neighboring_window left";
+    			"super+j" = "neighboring_window bottom";
+    			"super+k" = "neighboring_window up";
+    			"super+l" = "neighboring_window right";
+			"super+enter" = "launch --cwd=current --location=hsplit";
+  			"super+shift+enter" = "launch --cwd=current --location=vsplit";
+  		};
+
+  		settings = {
+    			enabled_layouts = "tall,fat,splits,stack";
+  		};
             extraConfig = ''
                   bold_font        auto
                   italic_font      auto
@@ -203,7 +227,10 @@
                   }; 
             };
       };
+      programs.zathura.enable = true;
+      programs.obsidian.enable = true;
 
 	home.stateVersion = "24.11";
 	programs.home-manager.enable = true;
+
 }

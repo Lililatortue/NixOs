@@ -102,14 +102,20 @@ border-radius: 20px;
 /*    module right     */
 /*---------------------*/
 
-/* not used for now
-#mode {
+.modules-right {
+      margin : 5px;
+      padding: 5px 10px;
+      background: #1f3128;
+      border-radius: 25px;
+      font-weight: bold;
 }
 
 
 #battery {
-    background-color: #ffffff;
-    color: black;
+      padding: 0 10px; 
+      background-color: #af5f45;
+      border-radius: 10px;
+      color: white;
 }
 
 #battery.charging {
@@ -133,4 +139,3 @@ border-radius: 20px;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
-*/

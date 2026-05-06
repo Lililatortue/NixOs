@@ -1,12 +1,18 @@
 {
-"layer": "top",
-"modules-left": [
-      "custom/launcher",
-      "hyprland/workspaces",
-      "cpu",
-      "memory"
-],
-"modules-center": ["group/stats"],
+      "layer": "top",
+
+
+      "modules-left": [
+            "custom/launcher",
+            "hyprland/workspaces",
+            "cpu",
+            "memory"
+      ],
+
+      "modules-center": ["group/stats"],
+
+      "modules-right": ["battery"],
+
 
 "custom/launcher": {
       "format": " ",
@@ -27,7 +33,11 @@
 "memory": {
       "interval": 30,			
 	"format"  : "{percentage}%"
-},	
+},
+
+//
+// center
+//
 "group/stats": {
       "orientation": "horizontal",
 	"modules": [
@@ -63,5 +73,12 @@
       "scroll-step": 1,
       "on-click": "pavucontrol",
       "ignored-sinks": ["Easy Effects Sink"]
-} 
+},
+
+
+      "battery": {
+            "bat": "BAT0",
+            "format": "{capacity}% {icon}",
+            "format-icons": ["", "", "", "", ""]
+      }
 }

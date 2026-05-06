@@ -52,6 +52,9 @@
             ];
            
             plugins = {
+                  direnv = {
+                        enable = true;
+                  };
                   #                      #
                   #     file tree        #
                   #                      # 
@@ -96,40 +99,40 @@
                         servers= {                              
                               nil_ls.enable = true;
                               lua_ls.enable = true;
-
+                              gopls.enable  = true;
+                              ts_ls.enable  = true;
                               rust_analyzer = {
                                     enable = true;
                                     installCargo   = true;
                                     installRustc   = true;
                                     installRustfmt = true;
-                                    installClippy  = true;
-                                    
+                                    installClippy  = true;      
                                     autostart      = true;
                               };
                         }; 
                   };
 
                   cmp = {
-			enable = false;
+			      enable = true;
                         autoEnableSources = true;
-			settings = {
-                        mapping = {
-                              # force the options to open
-                              "<Space-c>" = "cmp.mapping.complete()";
-                              # choose a select
-                              "<CR>"      = "cmp.mapping.confirm({select = true})";
-                              # go to next
-                              "<Tab>"     = "cmp.mapping.select_next_item()";
-                              # go to previous
-                              "<S-Tab>"   = "cmp.mapping.select_previous_item()";
-                        };
+			      settings = {
+                              mapping = {
+                                    # force the options to open
+                                    "<Space-c>" = "cmp.mapping.complete()";
+                                    # choose a select
+                                    "<CR>"      = "cmp.mapping.confirm({select = true})";
+                                    # go to next
+                                    "<Tab>"     = "cmp.mapping.select_next_item()";
+                                    # go to previous
+                                    "<S-Tab>"   = "cmp.mapping.select_prev_item()";
+                              };
                         
-                        sources = [
-                              { name = "nvim_lsp"; }
-                              { name = "path";     }
-                              { name = "buffer";   }
-                        ];
-			};
+                              sources = [
+                                    { name = "nvim_lsp"; }
+                                    { name = "path";     }
+                                    { name = "buffer";   }
+                              ];
+			      };
                   };
                   tree-sitter = {
                         enable    = true;
@@ -137,6 +140,7 @@
                         indent.enable    = true;
                         folding.enable   = true;     
                         grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+                              go
                               bash
                               json
                               lua
