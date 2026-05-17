@@ -37,6 +37,7 @@
             boot.loader.systemd-boot.enable = true;
             boot.loader.efi.canTouchEfiVariables = true;
 
+            networking.hostName = "myMachine";
             networking.networkmanager.enable = true;
             networking.firewall.enable = true;
 

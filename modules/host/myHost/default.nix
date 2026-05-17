@@ -4,7 +4,10 @@
   {
       specialArgs={ inherit self inputs; };
       modules = [
-      self.nixosModules.myMachineConfiguration
-     ];
+            {
+                  nixpkgs.config.allowUnfree = true;
+            } 
+            self.nixosModules.myMachineConfiguration
+    ];
   };
 }
