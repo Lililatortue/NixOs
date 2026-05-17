@@ -49,7 +49,7 @@
                   data = [
                         pkgs.vimPlugins.nvim-lspconfig
                   ];
-                  config = ''vim.lsp.enable("rust-analyser")'';
+                  config = ''vim.lsp.enable("rust_analyzer")'';
             };
       };
 
@@ -93,7 +93,7 @@
                   data = [
                         pkgs.vimPlugins.nvim-lspconfig
                   ];
-                  config = ''vim.lsp.enable("bash")'';
+                  config = ''vim.lsp.enable("bashls")'';
             };
       };
 

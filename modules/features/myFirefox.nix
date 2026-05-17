@@ -17,16 +17,16 @@
                   package = pkgs.firefox;
 
                   flags = {
-                  "--profile" = pkgs.runCommand "firefox-profile" {} ''
-                  mkdir -p $out
-                        cat <<EOF > $out/user.js
-                        user_pref("browser.startup.homepage", "https://wiki.nixos.org/wiki/");
-                        user_pref("browser.theme.content-theme", 0);
-                        user_pref("browser.theme.toolbar-theme", 0);
-                        user_pref("ui.systemUsesDarkTheme", 1);
-                        user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true); 
-                        user_pref("devtools.inspector.showUserAgentStyles", true);
-                  EOF'';
+                 # "--profile" = pkgs.runCommand "firefox-profile" {} ''
+                 # mkdir -p $out
+                 #       cat <<EOF > $out/user.js
+                 #       user_pref("browser.startup.homepage", "https://wiki.nixos.org/wiki/");
+                 #       user_pref("browser.theme.content-theme", 0);
+                 #       user_pref("browser.theme.toolbar-theme", 0);
+                 #       user_pref("ui.systemUsesDarkTheme", 1);
+                 #       user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true); 
+                 #       user_pref("devtools.inspector.showUserAgentStyles", true);
+                 # EOF'';
                   };
             });
       };

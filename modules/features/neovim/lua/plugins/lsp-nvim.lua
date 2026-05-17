@@ -2,7 +2,7 @@ return {
     "nvim-lspconfig",
     lazy = false,
 
-    before = function()
+    config = function()
         local on_attach = function(client, bufnr)
             local opts = { noremap = true, silent = true, buffer = bufnr }
 

@@ -59,6 +59,9 @@ return {
                   },
                   fuzzy = {
                         implementations = "prefer_rust_with_warning",
+                        frecency = {
+                              enabled = false,
+                        },
                   },
             });
       end,

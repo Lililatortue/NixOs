@@ -4,11 +4,11 @@
       {
             imports = [
                   self.nixosModules.myMachineHardware
-                  # self.packages.${pkgs.system}.myNeovimSudo
+                  self.nixosModules.direnv
+#                  self.packages.myNeovimSudo
             ];
 
             nix.settings.experimental-features = ["nix-command" "flakes"];
-            nixpkgs.config.allowUnfree = true;
             environment.pathsToLink = [ 
                   "/share/applications"
                   "/share/xdg-desktop-portal"
@@ -25,7 +25,7 @@
                   packages = with pkgs; [
                         git 
                         zathura
-              #          docker
+                        docker
                         self.packages.${pkgs.stdenv.hostPlatform.system}.myHyprland
                         self.packages.${pkgs.stdenv.hostPlatform.system}.neovimFull
                   ];

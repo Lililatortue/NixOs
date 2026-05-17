@@ -52,6 +52,7 @@
       {
             packages.neovimFull = inputs.wrapper-modules.wrappers.neovim.wrap {
                   inherit pkgs;
+
                   imports = [
                         self.nixosModules.neovim-main
                         self.modules.neovim.allServers
