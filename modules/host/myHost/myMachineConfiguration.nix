@@ -4,10 +4,11 @@
       {
             imports = [
                   self.nixosModules.myMachineHardware
-                 # self.packages.${pkgs.system}.myNeovimSudo
+                  # self.packages.${pkgs.system}.myNeovimSudo
             ];
 
             nix.settings.experimental-features = ["nix-command" "flakes"];
+            nixpkgs.config.allowUnfree = true;
 
             environment.pathsToLink = [ 
                   "/share/applications"
