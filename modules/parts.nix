@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-      import = [
+      imports = [
             inputs.flake-parts.flakeModules.modules
       ]; 
 
