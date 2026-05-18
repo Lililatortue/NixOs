@@ -64,7 +64,7 @@
 
                   imports = [
                         self.modules.neovim.main
-                        #self.modules.neovim.sudoServers
+                        self.modules.neovim.sudoServers
                   ];
             };           
       };

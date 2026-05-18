@@ -109,13 +109,12 @@
             ];
       };
 
-
-#     flake.modules.neovim.sudoServers = {
-#            imports = [
-#                  self.modules.neovim.lua
-#                  self.modules.neovim.nix
-#                  self.modules.neovim.bash
-#            ];
-#      };
+     flake.modules.neovim.sudoServers = {
+            imports = [
+                  self.modules.neovim.lua
+                  self.modules.neovim.nix
+                  self.modules.neovim.bash
+            ];
+      };
 }
 
