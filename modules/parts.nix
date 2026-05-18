@@ -1,7 +1,11 @@
 { inputs, ... }:
 {
-  systems = [
-    "x86_64-linux"  # Standard Intel/AMD 64-bit Linux
-  ];
+      import = [
+            inputs.flake-parts.flakeModules.modules
+      ]; 
+
+      systems = [
+            "x86_64-linux"
+      ];
       
 }

@@ -48,13 +48,13 @@
       };
   };
 
-      perSystem = { pkgs, ... }:
+      perSystem = { pkgs, self', ... }:
       {
             packages.neovimFull = inputs.wrapper-modules.wrappers.neovim.wrap {
                   inherit pkgs;
 
                   imports = [
-                        # self.modules.neovim.main
+                        self.modules.neovim.main
                         self.modules.neovim.allServers
                   ];
             };
@@ -64,7 +64,7 @@
 
                   imports = [
                         self.modules.neovim.main
-                        self.modules.neovim.sudoServers
+                        #self.modules.neovim.sudoServers
                   ];
             };           
       };
