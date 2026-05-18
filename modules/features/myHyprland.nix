@@ -7,8 +7,7 @@
                   enable  = true;
                   package = self.packages.${pkgs.stdenv.hostPlatform.system}.myHyprland;
             };
-            
-            xdg.configFile."hyprland/wallpaper.png".source = ./hyprland/wallpaper.png;
+            xdg.configFile."hyprland/wallpaper.png".source  = ./hyprland/wallpaper.png;
             xdg.configFile."hyprland/hyprland.conf".source = ./hyprland/hyprland.conf;
       };
 

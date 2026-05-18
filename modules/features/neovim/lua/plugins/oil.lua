@@ -13,6 +13,7 @@ return {
         end
 
         require("oil").setup({
+            default_file_explorer = true,
             win_options = {
                 winbar = "%!v:lua.get_oil_winbar()",
             },

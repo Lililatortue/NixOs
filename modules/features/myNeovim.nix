@@ -1,6 +1,6 @@
 { inputs, self, ... }: 
 {
-  flake.nixosModules.neovim-main = { config, wlib, lib, pkgs, ... }: { 
+  flake.modules.neovim.main = { config, wlib, lib, pkgs, ... }: { 
 
       config = {
             settings.config_directory = ./neovim;
@@ -48,21 +48,22 @@
       };
   };
 
-      perSystem = { pkgs, self',... }:
+      perSystem = { pkgs, ... }:
       {
             packages.neovimFull = inputs.wrapper-modules.wrappers.neovim.wrap {
                   inherit pkgs;
 
                   imports = [
-                        self.nixosModules.neovim-main
+                        # self.modules.neovim.main
                         self.modules.neovim.allServers
                   ];
             };
 
             packages.neovimSudo = inputs.wrapper-modules.wrappers.neovim.wrap {
                   inherit pkgs;
+
                   imports = [
-                        self.nixosModules.neovim-main
+                        self.modules.neovim.main
                         self.modules.neovim.sudoServers
                   ];
             };           

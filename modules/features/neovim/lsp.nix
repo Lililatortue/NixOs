@@ -1,6 +1,6 @@
 { self, ...}:
 {
-      flake.modules.neovim.lua = {pkgs, ...}: 
+      flake.wrappers.neovim.lua = {pkgs, ...}: 
       {
             extraPackages = [
                   pkgs.lua-language-server
@@ -14,107 +14,108 @@
             };
       };
 
-      flake.modules.neovim.ts = {pkgs, ...}: 
-      {
-            extraPackages = [
-                  pkgs.typescript-language-server
-            ];
-            specs.ts = {
-                  data = [
-                        pkgs.vimPlugins.nvim-lspconfig
-                  ];
-                  config = ''vim.lsp.enable("ts_ls")'';
-            };
-      };
-      
-      flake.modules.neovim.go = {pkgs, ...}:
-      {
-            extraPackages = [
-                  pkgs.gopls
-            ]; 
-            specs.go = {
-                  data = [
-                        pkgs.vimPlugins.nvim-lspconfig
-                  ];
-                  config = ''vim.lsp.enable("gopls")'';
-            };
-      };
-
-      flake.modules.neovim.rust = {pkgs, ...}:
-      {
-            extraPackages = [
-                  pkgs.rust-analyzer
-            ]; 
-            specs.rust = {
-                  data = [
-                        pkgs.vimPlugins.nvim-lspconfig
-                  ];
-                  config = ''vim.lsp.enable("rust_analyzer")'';
-            };
-      };
-
-
-      # server stack
-      flake.modules.neovim.nix = {pkgs, ...}:
-      {
-            extraPackages = [
-                  pkgs.nixd
-                  pkgs.alejandra
-            ]; 
-            specs.nixd = {
-                  data = [
-                        pkgs.vimPlugins.nvim-lspconfig
-                  ];
-                  config = ''
-                  vim.lsp.config("nixd", {
-                        cmd = { "nixd" },
-                        settings = {
-                              nixd = {
-                                    nixpkgs = {
-                                          expr = "import <nixpkgs> { }",
-                                    },
-                                    formatting = {
-                                          command = { "alejandra" },
-                                    },
-                              },
-                        },
-                  })
-                  vim.lsp.enable("nixd")
-                  '';
-            };
-      };
-
-      flake.modules.neovim.bash = {pkgs, ...}:
-      {
-            extraPackages = [
-                  pkgs.bash
-            ];
-            specs.bash = {
-                  data = [
-                        pkgs.vimPlugins.nvim-lspconfig
-                  ];
-                  config = ''vim.lsp.enable("bashls")'';
-            };
-      };
-
+#
+#      flake.modules.neovim.ts = {pkgs, ...}: 
+#      {
+#            extraPackages = [
+#                  pkgs.typescript-language-server
+#            ];
+#            specs.ts = {
+#                  data = [
+#                        pkgs.vimPlugins.nvim-lspconfig
+#                  ];
+#                  config = ''vim.lsp.enable("ts_ls")'';
+#            };
+#      };
+#      
+#      flake.modules.neovim.go = {pkgs, ...}:
+#      {
+#            extraPackages = [
+#                  pkgs.gopls
+#            ]; 
+#            specs.go = {
+#                  data = [
+#                        pkgs.vimPlugins.nvim-lspconfig
+#                  ];
+#                  config = ''vim.lsp.enable("gopls")'';
+#            };
+#      };
+#
+#      flake.modules.neovim.rust = {pkgs, ...}:
+#      {
+#            extraPackages = [
+#                  pkgs.rust-analyzer
+#            ]; 
+#            specs.rust = {
+#                  data = [
+#                        pkgs.vimPlugins.nvim-lspconfig
+#                  ];
+#                  config = ''vim.lsp.enable("rust_analyzer")'';
+#            };
+#      };
+#
+#
+#      # server stack
+#      flake.modules.neovim.nix = {pkgs, ...}:
+#      {
+#            extraPackages = [
+#                  pkgs.nixd
+#                  pkgs.alejandra
+#            ]; 
+#            specs.nixd = {
+#                  data = [
+#                        pkgs.vimPlugins.nvim-lspconfig
+#                  ];
+#                  config = ''
+#                  vim.lsp.config("nixd", {
+#                        cmd = { "nixd" },
+#                        settings = {
+#                              nixd = {
+#                                    nixpkgs = {
+#                                          expr = "import <nixpkgs> { }",
+#                                    },
+#                                    formatting = {
+#                                          command = { "alejandra" },
+#                                    },
+#                              },
+#                        },
+#                  })
+#                  vim.lsp.enable("nixd")
+#                  '';
+#            };
+#      };
+#
+#      flake.modules.neovim.bash = {pkgs, ...}:
+#      {
+#            extraPackages = [
+#                  pkgs.bash
+#            ];
+#            specs.bash = {
+#                  data = [
+#                        pkgs.vimPlugins.nvim-lspconfig
+#                  ];
+#                  config = ''vim.lsp.enable("bashls")'';
+#            };
+#      };
+#
 
       flake.modules.neovim.allServers = {
             imports = [
                   self.modules.neovim.lua
-                  self.modules.neovim.ts
-                  self.modules.neovim.go
-                  self.modules.neovim.rust
-                  self.modules.neovim.nix
-                  self.modules.neovim.bash
+                #  self.modules.neovim.ts
+                #  self.modules.neovim.go
+                #  self.modules.neovim.rust
+                #  self.modules.neovim.nix
+                #  self.modules.neovim.bash
             ];
       };
 
-     flake.modules.neovim.sudoServers = {
-            imports = [
-                  self.modules.neovim.lua
-                  self.modules.neovim.nix
-                  self.modules.neovim.bash
-            ];
-      };
+#     flake.modules.neovim.sudoServers = {
+#            imports = [
+#                  self.modules.neovim.lua
+#                  self.modules.neovim.nix
+#                  self.modules.neovim.bash
+#            ];
+#      };
 }
 
