@@ -24,8 +24,11 @@
                         self'.packages.myKitty
                         self'.packages.myFirefox
                         self'.packages.mySlack
+
                         # premade stuff
                         obsidian
+                        libreoffice
+                        
                         
                         wofi
                         hyprshot

@@ -54,7 +54,46 @@
             };
       };
 
+      flake.modules.neovim.python = {pkgs, ...}:
+      {
+            extraPackages = [
+                  pkgs.python3
+                  pkgs.pyright
+            ]; 
+            specs.python = {
+                  data = [
+                        pkgs.vimPlugins.nvim-lspconfig
+                  ];
+                  config = ''vim.lsp.enable("pyright")'';
+            };
+      };
 
+      flake.modules.neovim.arduino = {pkgs, ...}:
+      {
+            extraPackages = [
+                  pkgs.arduino-language-server # The LSP wrapper
+                  pkgs.arduino-cli             # Needed to parse sketch metadata
+                  pkgs.llvmPackages.clang-unwrapped # Needed by the language server to index C++
+                  pkgs.gcc                     # Toolchain compiler
+            ]; 
+            specs.arduino = {
+                  data = [
+                        pkgs.vimPlugins.nvim-lspconfig
+                  ];
+                  config = ''
+                        vim.lsp.config("arduino_language_server", {
+                              cmd = {
+                                    "arduino-language-server",
+                                    "-cli-config", vim.fn.expand("$HOME/.local/share/arduino15/arduino-cli.yaml"),
+                                    "-cli", "arduino-cli",
+                                    "-clangd", "clangd"
+                              }
+                        })
+                        vim.lsp.enable("arduino_language_server")
+                        
+                  '';
+            };
+      };
       # server stack
       flake.modules.neovim.nix = {pkgs, ...}:
       {
@@ -104,8 +143,10 @@
                   self.modules.neovim.ts
                   self.modules.neovim.go
                   self.modules.neovim.rust
+                  self.modules.neovim.arduino
+                  self.modules.neovim.python
                   self.modules.neovim.nix
-                  self.modules.neovim.bash
+                  #self.modules.neovim.bash
             ];
       };
 
@@ -113,7 +154,7 @@
             imports = [
                   self.modules.neovim.lua
                   self.modules.neovim.nix
-                  self.modules.neovim.bash
+                  #self.modules.neovim.bash
             ];
       };
 }

@@ -26,13 +26,14 @@
                         git 
                         zathura
                         docker
+                        ripgrep
                         self.packages.${pkgs.stdenv.hostPlatform.system}.myHyprland
                         self.packages.${pkgs.stdenv.hostPlatform.system}.neovimFull
                   ];
-
             };
             users.groups.lililatortue = {};
             
+            virtualisation.docker.enable = true;
 
             boot.loader.systemd-boot.enable = true;
             boot.loader.efi.canTouchEfiVariables = true;

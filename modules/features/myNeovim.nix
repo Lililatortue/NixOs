@@ -7,6 +7,7 @@
 
             extraPackages = with pkgs; [
                   wl-clipboard
+                  ripgrep
             ];
 
             specs.init = {

@@ -2,20 +2,18 @@ return {
     "nvim-lspconfig",
     lazy = false,
 
-    config = function()
-        local on_attach = function(client, bufnr)
-            local opts = { noremap = true, silent = true, buffer = bufnr }
+      config = function()
+            vim.lsp.config('*', {
+                  capabilities = require("blink.cmp").get_lsp_capabilities(),
+                  on_attach = function(client, bufnr)
+                        local opts = { noremap = true, silent = true, buffer = bufnr }
 
-            vim.keymap.set('v', 'F', vim.lsp.buf.format, opts)
-            vim.keymap.set('n', '<leader>d', vim.lsp.buf.format, opts)
-            vim.keymap.set('n', '<leader>k', vim.diagnostic.open_float, opts)
-            vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
-            vim.keymap.set('n', 'gD', vim.lsp.buf.type_definition, opts)
-        end
-
-        vim.lsp.config('*', {
-            capabilities = require("blink.cmp").get_lsp_capabilities(),
-            on_attach = on_attach,
-        })
-    end,
+                        vim.keymap.set('v', 'F', vim.lsp.buf.format, opts)
+                        vim.keymap.set('n', '<leader>d', vim.lsp.buf.format, opts)
+                        vim.keymap.set('n', '<leader>k', vim.diagnostic.open_float, opts)
+                        vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
+                        vim.keymap.set('n', 'gD', vim.lsp.buf.type_definition, opts)
+                  end,
+            })
+      end,
 }

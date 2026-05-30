@@ -1,17 +1,19 @@
-return { 
-      "blink.cmp", 
+return {
+      "blink.cmp",
       lazy = false,
       after = function ()
             require("blink.cmp").setup({
                   snippets = { preset = 'luasnip' },
                   keymap   = { preset = "super-tab"},
-                  completion = { trigger = {},
+                  completion = { 
+                        trigger = {},
                         documentation = {
                               auto_show = true,
                               window = { border = 'single' }
                         },
 
                         menu = {
+                              draw = {
                               columns = { { "kind_icon" }, { "label", gap = 1 } },
                               components = {
                                     label = {
@@ -53,12 +55,12 @@ return {
                         },
                   },
             },
+      },
 
                   sources = {
                         default = { "lsp", "path", "snippets", "buffer" },
                   },
                   fuzzy = {
-                        implementations = "prefer_rust_with_warning",
                         frecency = {
                               enabled = false,
                         },
