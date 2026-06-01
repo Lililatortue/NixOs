@@ -2,7 +2,7 @@
 {
       # Server configuration meant to be extremely safe
       # Goal run it on public network and only allow me to use it through ssh
-      flake.darwinModules.llamaServerConfiguration = {pkgs, lib, self, ...}:
+      flake.nixosModules.llamaServerConfiguration = {pkgs, lib, self, ...}:
       let
             ROOT   = "/opt/server/infra/"; 
 
@@ -19,9 +19,6 @@
                   self.packages.myTailScale
                   self.packages.myAgenix
             ];
-            ##################
-            #     Darwin     #
-            ##################
             config = {
                   # enable tailscale
                   launchd.user.agents.tailscale-server = {

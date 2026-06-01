@@ -4,9 +4,6 @@
       # Goal run it on public network and only allow me to use it through ssh
       flake.nixosModules.llamaServerConfiguration = {pkgs, lib, self, ...}:
       let
-            darwin = pkgs.stdenv.hostPlatform.isLinux;
-            linux  = pkgs.stdenv.hostPlatform.isDarwin;
-
             ROOT   = "/opt/server/infra/"; 
 
             llamaPort   = 8081;
