@@ -1,0 +1,13 @@
+http:
+  routers:
+    ssh-router:
+      rule: "Host(`llama-server.tailnet-name.ts.net`)"
+      entryPoints:
+        - web
+      services: llama-backend
+     
+  services:
+    llama-backend-service:
+      loadBalancer:
+        servers:
+          - url: "http://127.0.0.1:8080"

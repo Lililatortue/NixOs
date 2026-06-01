@@ -116,6 +116,9 @@
                                     formatting = {
                                           command = { "alejandra" },
                                     },
+                                    options = {
+                                          expr = '(attributes of (import <nixpkgs/nixos>{})).options'
+                                    }
                               },
                         },
                   })

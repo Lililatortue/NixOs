@@ -28,12 +28,13 @@
                         vimPlugins.lspkind-nvim
                         vimPlugins.colorful-menu-nvim
                         vimPlugins.blink-cmp
-
+                        
                         # misc
                         vimPlugins.oil-nvim
                         vimPlugins.luasnip
                         vimPlugins.vim-fugitive
                         vimPlugins.everforest
+                        vimPlugins.telescope-nvim
                   ];
             };
 

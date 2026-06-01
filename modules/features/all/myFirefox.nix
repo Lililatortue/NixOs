@@ -5,6 +5,7 @@
             programs.firefox = {
                   enable = true;
                   packages = self.packages.${pkgs.stdenv.hostPlatform.system}.myFirefox;
+                  
            };
       };
 

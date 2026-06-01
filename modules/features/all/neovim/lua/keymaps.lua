@@ -6,8 +6,6 @@ keymap("i", "jk", "<ESC>", opts)
 keymap("i", "<M-h>", "<Left>", opts)
 keymap("i", "<M-l>", "<Right>", opts)
 
-keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
-keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 
 keymap("n", "<A-w>", "<C-w><C-w>", opts)
 

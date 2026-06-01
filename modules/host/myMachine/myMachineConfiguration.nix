@@ -26,26 +26,13 @@
                         git 
                         zathura
                         docker
-                        ripgrep
+                        ripgrep 
                         self.packages.${pkgs.stdenv.hostPlatform.system}.myHyprland
                         self.packages.${pkgs.stdenv.hostPlatform.system}.neovimFull
                   ];
             };
-            users.groups.lililatortue = {};
-            
+            users.groups.lililatortue = {};            
             virtualisation.docker.enable = true;
-
-            boot.loader.systemd-boot.enable = true;
-            boot.loader.efi.canTouchEfiVariables = true;
-
-            networking.hostName = "myMachine";
-            networking.networkmanager.enable = true;
-            networking.firewall.enable = true;
-
-            time.timeZone = "America/Montreal";
-
-
-            fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
             # List packages installed in system profile.
             environment.systemPackages = with pkgs; [
      	            vim 
@@ -53,6 +40,19 @@
                   self.packages.${pkgs.stdenv.hostPlatform.system}.neovimSudo
                   self.packages.${pkgs.stdenv.hostPlatform.system}.myFirefox
             ];
+
+
+
+            boot.loader.systemd-boot.enable = true;
+            boot.loader.efi.canTouchEfiVariables = true;
+
+            networking.hostName = "myMachine";
+            networking.networkmanager.enable = true;
+
+            networking.firewall.enable = true;
+            time.timeZone = "America/Montreal";
+            fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
+
   
             programs.nix-ld.enable  = true;
             programs.nix-ld.libraries = with pkgs; [

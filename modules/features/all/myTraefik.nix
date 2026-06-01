@@ -4,20 +4,19 @@
       {
             programs.traefik ={
                   enable = true;
-
                   package= self.packages.${pkgs.stdenv.hostPlatform.system}.myTraefik;
             };
 
       };
 
-      perSystem = {...}:{
-            packages.myTraefik = inputs.wrapper-modules.lib.wrapPackages({config, lib, pkgs, ...}:{
+      perSystem = {pkgs, self', ...}:{
+            packages.myTraefik = inputs.wrapper-modules.lib.wrapPackage({config,wlib, lib, ...}: {
                   inherit pkgs;
-                  
                   package = pkgs.traefik;
-                  
-                  dynamicConfigFile = builtins.json "./traefik/dynamic-config.json";
 
+                  flags = {
+                        "--configfile" = pkgs.writeText "traefik-config.yml" (builtins.readFile ./traefik/traefik-config.yml);
+                  };
             });
       };
 }
