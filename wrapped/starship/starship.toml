@@ -1,0 +1,23 @@
+format = """
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$docker_context\
+$python\
+$gcloud\
+"""
+[fill]
+symbol = ' '
+
+[python]
+style = 'teal'
+format = '(\($virtualenv))'
+
+[rust]
+
+[docker_context]
+format = '[$context](blue bold)'
+
+[gcloud]
+format = 'on [$symbol$account(@$domain)(\($project\))]($style)'
