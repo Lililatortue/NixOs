@@ -2,6 +2,8 @@
 {
       flake.packages.x86_64-linux = 
       withSystem "x86_64-linux" ({pkgs, self', ...}:{
+            
+      desktop-gaming = self'.packages.hyprland.wrap {                  
             extraPackages = [
                   pkgs.hyprshot
                   pkgs.mako
@@ -9,7 +11,6 @@
                   pkgs.awww
                   pkgs.wl-clipboard
             ];
-      desktop-gaming = self'.packages.hyprland.wrap {                  
             bind = {
                   "mouse:276, a" = "exec, hyprctl dispatch workspace 1 && (hyprctl clients | grep -i steam && hyprctl dispatch focuswindow steam || steam)";
                   "mouse:276, s" = "exec, hyprctl dispatch workspace 2 && (hyprctl clients | grep -i firefox && hyprctl dispatch focuswindow firefox || firefox)";
@@ -27,7 +28,7 @@
                   pkgs.mako
                   pkgs.wofi
                   pkgs.awww
-                  pkgs.wl-clipboard
+                  pkgs.wl-clipboard 
             ];
             bind = {                        
                   "ALT, Q" = " exec, $terminal";

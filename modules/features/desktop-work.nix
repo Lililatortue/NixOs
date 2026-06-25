@@ -10,19 +10,16 @@
 
             ];
             environment.systemPackages = [
-            #---- allow unfree ----
-            #     pkgs.obsidian
-            #     pkgs.slack
-                  pkgs.libreoffice
-
+                  sp.slack
 		      sp.terminal-work
 		      sp.environment-work
                   sp.waybar-work
+                  pkgs.obsidian
             #---- futur plans ----
             #     sp.direnv
             #     sp.obsidian
             ];
-
+            
             programs.hyprland.enable = true;
             programs.hyprland.package=sp.desktop-work;
             

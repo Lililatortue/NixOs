@@ -7,26 +7,18 @@
             imports = [
                   self.nixosModules.steam
                   self.nixosModules.firefox
-            #     self.nixosModules.ssh
+                  self.nixosModules.ssh         # for servers
             ];
             environment.systemPackages = with pkgs; [
                   discord-ptb
-                  obsidian
             ];
  
             programs.hyprland.enable = true;
             programs.hyprland.package= sp.desktop-gaming;
-            
-            fonts.packages = with pkgs; [
-                  nerd-fonts.jetbrains-mono
-            ];
 
-            time.timeZone = "America/Montreal";
-            services.upower.enable = true;
+            networking.hostName = "gaming";
+            networking.networkmanager.enable = true;
+            networking.firewall.enable = false;
 
-            hardware = {
-                  bluetooth.enable = true; 
-                  bluetooth.powerOnBoot = true;
-            };
       };
 }

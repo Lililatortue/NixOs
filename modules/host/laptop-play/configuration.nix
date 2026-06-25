@@ -12,9 +12,6 @@
             nix.settings.experimental-features = ["nix-command" "flakes"]; 
             # hardware specifique changes to make gaming experience better
 
-
-
-
             boot.loader.systemd-boot.enable = true;
             boot.loader.efi.canTouchEfiVariables = true;
 
@@ -26,6 +23,19 @@
             fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
 
             services.openssh.enable = true;
+            hardware = {
+                  graphics = {
+                        enable = true;
+                        enable32Bit = true;
+                        extraPackages = with pkgs; [ 
+                              intel-media-driver 
+                              intel-ocl 
+                              intel-vaapi-driver 
+                              vulkan-loader
+                              vulkan-validation-layers
+                        ];
+                  };
+            };
 
             system.stateVersion = "25.11"; # Do not change this ffs
       };
