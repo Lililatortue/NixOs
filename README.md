@@ -1,2 +1,4 @@
 ### Todo
-read this https://flake.parts/system.html
+- make it so only certain program are on unstable branch
+- add impermance options
+- explore nix-darwin
