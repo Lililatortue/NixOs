@@ -10,11 +10,14 @@
 
             ];
             environment.systemPackages = [
-                  sp.slack
+            #---- allow unfree ----
+            #     pkgs.obsidian
+            #     pkgs.slack
+                  pkgs.libreoffice
+
 		      sp.terminal-work
 		      sp.environment-work
                   sp.waybar-work
-                  sp.obsidian
             #---- futur plans ----
             #     sp.direnv
             #     sp.obsidian

@@ -11,10 +11,10 @@
                   self.nixosModules.bash
                   self.nixosModules.desktop-work
                   self.nixosModules.user
+            #     self.nixosModules.git
             ];
 
             nix.settings.experimental-features = ["nix-command" "flakes"];
-
             environment.pathsToLink = [ 
                   "/share/applications"
                   "/share/xdg-desktop-portal"
