@@ -76,6 +76,7 @@
                         pkgs.tree-sitter
 
                         self'.packages.neovimSudo
+                        self'.packages.git
                   ];
 
             };

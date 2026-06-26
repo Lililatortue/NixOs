@@ -7,12 +7,17 @@
             imports = [
                   self.nixosModules.steam
                   self.nixosModules.firefox
-                  self.nixosModules.ssh         # for servers
+            #      self.nixosModules.ssh         # for servers
             ];
             environment.systemPackages = with pkgs; [
                   discord-ptb
+                  pkgs.vim
+            ]; 
+            environment.pathsToLink = [ 
+                  "/share/applications"
+                  "/share/xdg-desktop-portal"
             ];
- 
+
             programs.hyprland.enable = true;
             programs.hyprland.package= sp.desktop-gaming;
 
@@ -20,5 +25,12 @@
             networking.networkmanager.enable = true;
             networking.firewall.enable = false;
 
+            fonts.packages = [pkgs.nerd-fonts.jetbrains-mono];
+            time.timeZone = "America/Montreal";
+
+            boot.loader.systemd-boot.enable = true;
+            boot.loader.efi.canTouchEfiVariables = true;
+
+            services.upower.enable = true;
       };
 }

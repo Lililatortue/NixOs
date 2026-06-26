@@ -6,8 +6,6 @@
       in {            
             imports = [
                   self.nixosModules.firefox
-            #      self.nixosModules.persistance
-
             ];
             environment.systemPackages = [
                   sp.slack
@@ -15,22 +13,26 @@
 		      sp.environment-work
                   sp.waybar-work
                   pkgs.obsidian
-            #---- futur plans ----
-            #     sp.direnv
-            #     sp.obsidian
+            ];
+            environment.pathsToLink = [ 
+                  "/share/applications"
+                  "/share/xdg-desktop-portal"
             ];
             
             programs.hyprland.enable = true;
-            programs.hyprland.package=sp.desktop-work;
-            
-            fonts.packages = [pkgs.nerd-fonts.jetbrains-mono];
-	
-            time.timeZone = "America/Montreal";
+            programs.hyprland.package=sp.desktop-work;	
+
             networking.hostName = "work";
             networking.networkmanager.enable = true;
             networking.firewall.enable = true;
+            
 
-            services.openssh.enable = true; 
+            fonts.packages = [pkgs.nerd-fonts.jetbrains-mono];
+            time.timeZone = "America/Montreal";
+
+            boot.loader.systemd-boot.enable = true;
+            boot.loader.efi.canTouchEfiVariables = true;
+
             services.upower.enable = true;
       };
 }

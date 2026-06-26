@@ -75,6 +75,7 @@
                         pkgs.htop 
                         pkgs.tree-sitter
                         self'.packages.neovimFull
+                        self'.packages.git
                   ];
 
             };
