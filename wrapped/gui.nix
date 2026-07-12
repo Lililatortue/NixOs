@@ -1,21 +1,25 @@
 { withSystem, inputs, self, ...}:
 {
       flake.packages.x86_64-linux = 
-      withSystem "x86_64-linux" ({pkgs, self', ...}:{
-            
-      desktop-gaming = self'.packages.hyprland.wrap {                  
-            extraPackages = [
+      withSystem "x86_64-linux" ({pkgs, self', ...}:
+      let 
+            sharedPackages = [
                   pkgs.hyprshot
                   pkgs.mako
                   pkgs.wofi
                   pkgs.awww
                   pkgs.wl-clipboard
             ];
+
+      in {
+            
+      desktop-gaming = self'.packages.hyprland.wrap {                  
+            extraPackages = sharedPackages;
             bind = {
-                  "mouse:276, a" = "exec, hyprctl dispatch workspace 1 && (hyprctl clients | grep -i steam && hyprctl dispatch focuswindow steam || steam)";
-                  "mouse:276, s" = "exec, hyprctl dispatch workspace 2 && (hyprctl clients | grep -i firefox && hyprctl dispatch focuswindow firefox || firefox)";
-                  "mouse:276, d" = "exec, hyprctl dispatch workspace 3";
-                  "mouse:276, f" = "exec, pidof waybar && pkill -USR1 waybar || waybar";
+                  "ALT, i" = "exec, hyprctl dispatch workspace 1 && (hyprctl clients | grep -i steam && hyprctl dispatch focuswindow steam || steam)";
+                  "ALT, f" = "exec, hyprctl dispatch workspace 2 && (hyprctl clients | grep -i firefox && hyprctl dispatch focuswindow firefox || firefox)";
+                  "ALT, d" = "exec, hyprctl dispatch workspace 3";
+                  "ALT, w" = "exec, pidof waybar && pkill -USR1 waybar || waybar";
                   "ALT, P" = "exec, $sshot --notify -m window -m active --clipboard-only";
                   "ALT SHIFT,P" = "exec, $sshot --notify -m output -m active --clipboard-only";
             };
@@ -23,20 +27,14 @@
       };
 
       desktop-work = self'.packages.hyprland.wrap {                  
-            extraPackages = [
-                  pkgs.hyprshot
-                  pkgs.mako
-                  pkgs.wofi
-                  pkgs.awww
-                  pkgs.wl-clipboard 
-            ];
+            extraPackages = sharedPackages;
             bind = {                        
-                  "ALT, Q" = " exec, $terminal";
-                  "ALT, B" = " exec, $browser";
-                  "ALT, Z" = " exec, $slack";
-                  "ALT, X" = " exec, $office";
+                  "ALT, Q" = " exec, kitty";
+                  "ALT, B" = " exec, firefox";
+                  "ALT, Z" = " exec, slack";
+                  "ALT, X" = " exec, libreoffice";
                   "ALT, C" = " killactive";
-                  "ALT, O" = " exec, $notes";
+                  "ALT, O" = " exec, obsidian";
                   "ALT, M" = " exit";
                   "ALT, R" = " exec, $menu";
                   "ALT, v" = " pseudo,";

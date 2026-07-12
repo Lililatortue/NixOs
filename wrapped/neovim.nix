@@ -1,4 +1,4 @@
-{ inputs, self, ... }: 
+{inputs, self, ... }: 
 {
   flake.modules.neovim.main = { config, wlib, lib, pkgs, ... }: { 
       config = {
@@ -46,6 +46,7 @@
                         vimPlugins.gitsigns-nvim
                         vimPlugins.nvim-autopairs
                         vimPlugins.mini-files
+                        vimPlugins.codecompanion-nvim
                   ];
             };
       };

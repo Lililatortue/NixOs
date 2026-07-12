@@ -1,6 +1,6 @@
-{ self, inputs, ... }:
+{ ... }:
 {
-      flake.nixosModules.steam = { pkgs, ... }: {
+      flake.nixosModules.steam = { ... }: {
             programs.steam = {
                   enable = true; 
             };     

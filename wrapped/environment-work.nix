@@ -6,7 +6,6 @@
 }: {
       perSystem = {
             pkgs,
-            system,
             self',
             ...
       }: { 
@@ -74,6 +73,8 @@
                         pkgs.wget
                         pkgs.htop 
                         pkgs.tree-sitter
+
+                        pkgs.zathura
                         self'.packages.neovimFull
                         self'.packages.git
                   ];

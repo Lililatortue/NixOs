@@ -17,12 +17,12 @@
             hardware.graphics = {
                   enable = true;
                   enable32Bit = true;
-                  extraPackages = with pkgs; [ 
-                        intel-media-driver 
-                        intel-ocl 
-                        intel-vaapi-driver 
-                        vulkan-loader
-                        vulkan-validation-layers
+                  extraPackages = [ 
+                        pkgs.intel-media-driver 
+                        pkgs.intel-ocl 
+                        pkgs.intel-vaapi-driver 
+                        pkgs.vulkan-loader
+                        pkgs.vulkan-validation-layers
                   ];
             };
  

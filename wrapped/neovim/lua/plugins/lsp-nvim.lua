@@ -4,7 +4,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         local bufnr = args.buf
         local opts = { noremap = true, silent = true, buffer = bufnr }
 
-        -- The exact shortcuts you want
         vim.keymap.set('v', 'F', vim.lsp.buf.format, opts)
         vim.keymap.set('n', '<leader>d', vim.lsp.buf.format, opts)
         vim.keymap.set('n', '<leader>k', vim.diagnostic.open_float, opts) -- Lowercase k

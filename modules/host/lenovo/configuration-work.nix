@@ -1,6 +1,6 @@
 { self, inputs, ...}:
 {
-      flake.nixosModules.lenovoWorkConfiguration = { pkgs, lib, ... }:
+      flake.nixosModules.lenovoWorkConfiguration = { stable, pkgs, lib, ... }:
       {
             imports = [
                   self.nixosModules.lenovoHardware 
@@ -13,6 +13,21 @@
                   self.nixosModules.desktop-work 
             ];
             nix.settings.experimental-features = ["nix-command" "flakes"]; 
+
+            environment.systemPackages = [
+                inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
+            ];
+            age.secrets.git-secret = {
+                file = ./secrets/git.age;
+                owner= "lililatortue";
+                group= "users";
+                mode = "0400";
+            };
+
+            services.openssh = {
+                enable = true;
+                settings.PermitRootLogin = "no"; 
+            };
 
             # cronjob
             # ---------------

@@ -54,6 +54,33 @@
             };
       };
 
+      flake.modules.neovim.java = {pkgs, ...}: 
+      {
+            extraPackages = [
+                  pkgs.openjdk21
+                  pkgs.jdt-language-server
+            ]; 
+            specs.java = {
+                  data = [
+                        pkgs.vimPlugins.nvim-lspconfig
+                  ];
+                  config =''
+                        vim.lsp.config('jdtls', {
+                              cmd = { 
+                                    'jdtls',
+                                    '-data', vim.fn.stdpath('cache') .. '/jdtls/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
+                              },
+                              root_markers = { 'build.gradle', '.git' },
+
+                              on_init = function(client)
+                                    client.server_capabilities.semanticTokensProvider = nil
+                              end,
+                        })
+                        vim.lsp.enable('jdtls') 
+                  '';
+           };
+      };
+
       flake.modules.neovim.arduino = {pkgs, ...}:
       {
             extraPackages = [
@@ -102,9 +129,7 @@
                                     formatting = {
                                           command = { "alejandra" },
                                     },
-                                    options = {
-                                          expr = '(attributes of (import <nixpkgs/nixos>{})).options'
-                                    }
+                                    
                               },
                         },
                   })
@@ -119,6 +144,7 @@
                   self.modules.neovim.lua
                   self.modules.neovim.ts
                   self.modules.neovim.rust
+                  self.modules.neovim.java
                   self.modules.neovim.arduino
                   self.modules.neovim.python
                   self.modules.neovim.nix

@@ -66,7 +66,6 @@
                         pkgs.alejandra
                         pkgs.manix
                         pkgs.nix-inspect
-                        
                         pkgs.unzip
                         pkgs.zip
                         pkgs.sshfs

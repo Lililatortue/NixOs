@@ -9,15 +9,11 @@ return {
       defaults = {
         mappings = {
           i = {
-            -- Custom insert mode mappings if you want them
           },
         },
       },
     })
 
-    -- Set your keymap here
-    -- 'n' means Normal mode
-    -- '<leader>f' is your trigger
     vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, { desc = 'Telescope Find Files' })
   end
 }

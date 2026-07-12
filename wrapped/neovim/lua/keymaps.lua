@@ -6,7 +6,6 @@ keymap("i", "jk", "<ESC>", opts)
 keymap("i", "<M-h>", "<Left>", opts)
 keymap("i", "<M-l>", "<Right>", opts)
 
-
 keymap("n", "<A-w>", "<C-w><C-w>", opts)
 
 keymap("n", "z{", "zfi{", opts)
@@ -18,10 +17,14 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+
 keymap("n", "<C-h>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-l>", ":vertical resize +2<CR>", opts)
 keymap("n", "<C-k>", ":resize -2<CR>", opts)
 keymap("n", "<C-j>", ":resize +2<CR>", opts)
+
+
+
 
 keymap("n", "<C-d>", "5<C-d>", opts)
 keymap("n", "<C-u>", "5<C-u>", opts)

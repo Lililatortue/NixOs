@@ -1,6 +1,6 @@
 { self, inputs, ... }:
 {
-      flake.nixosModules.firefox = {pkgs, lib, ...}:
+      flake.nixosModules.firefox = {...}:
       {
             programs.firefox = {
                   enable = true;

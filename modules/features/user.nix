@@ -1,6 +1,6 @@
 { self, inputs, ...}:
 {
-      flake.nixosModules.user = {pkgs,...}:{
+      flake.nixosModules.user = {...}:{
             users.users.lililatortue = {
                   isNormalUser = true;     
                   extraGroups = [ "docker" "wheel" "networkmanager" ];                   
